@@ -7,6 +7,37 @@
     <title>Document</title>
 </head>
 <body>
+
+    <main id="edugress">
+
+        <!-- accessing properties from data object on edugress Vue app --> 
+        <h2>{{ school }}</h2>
+        <p>
+            {{ address }}
+        </p>
+
+    </main>
     
+
+
+    <!-- 
+        import the edugress Vue app, defined in main.js file.
+    -->
+    <script src="./main.js"></script>
+
+    <!-- 
+        Mount edugress Vue app into my DOM
+
+        edugress.mount refers to the app I imported above
+        edugress within the main.js file.
+
+        '#edugress' refers to a DOM id selector used to plug the 
+        edugress app into a piece of my DOM. This will allow this
+        html template to have access to the edugress data values, methods
+        and computed properties.
+    -->
+    <script>
+        const mountedApp = edugress.mount('#edugress');
+    </script>
 </body>
 </html>
