@@ -69,10 +69,34 @@
                     Open Registration
                 </p>
 
-                <!-- show whether books are available for purchase. -->
-                <img :src="books_img" v-bind:alt="books_img_alt" class="bookpile">
-                <h3 v-if="onSale">Books On Sale!</h3>
-                <h3 v-else="onSale">Books Out of Stock!</h3>
+                <div class="flex_container">
+                    <div>
+                        <!-- show whether books are available for purchase. -->
+                        <img :src="books_img" v-bind:alt="books_img_alt" class="bookpile">
+                        <h3 v-if="onSale">Books On Sale!</h3>
+                        <h3 v-else="onSale">Books Out of Stock!</h3>
+                    </div>
+
+                    <!-- List rendering using v-for Vue directive -->
+                    <div>
+                        <h2>Our Honor Students</h2>
+                        <ul>
+                            <li v-for="student in honor_students">
+                                {{ student }}
+                            </li>
+                        </ul>
+
+                        <!-- bind the id to the key attribute -->
+                        <h2>Our Top Athletes</h2>
+                        <ol>
+                            <li v-for="athlete in top_athletes" :key="athlete.id">
+                                {{ athlete.name }} is in house {{ athlete.house_color }} house.
+                            </li>
+                        </ol>
+                    </div>
+
+                </div>
+                
                 
             </div>
 

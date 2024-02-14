@@ -17,6 +17,19 @@ const  edugress = Vue.createApp({
             books_img: './assets/images/book_pile.jpg',
             books_img_alt: 'image of books',
             onSale: true,
+            honor_students: ['Ruth', 'John', 'Peter'],
+            top_athletes: [
+                {
+                    id: 0,
+                    name: 'Paul',
+                    house_color: 'red'
+                },
+                {
+                    id: 1,
+                    name: 'Nahum',
+                    house_color: 'blue'
+                }
+            ],
         }
     }
 })
