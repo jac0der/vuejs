@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./assets/styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <main id="edugress">
+
+        <section>
+            <!-- long format of v-bind - attribute binding -->
+            <img v-bind:src="logo" alt="image of ferncourt high">
+
+            <!-- accessing properties from data object on edugress Vue app --> 
+            <h2><a v-bind:href="aboutFHS" target="_blank">{{ school }}</a></h2>
+            <p>
+                {{ address }}
+            </p>
+        </section>
+
+        <section class="flex_container">
+            
+            <div>
+                <!-- short format of v-bind - attribute binding (:)-->
+             <a :href="aboutFHS" target="_blank">
+                <img :src="image" alt="image of ferncourt high">
+            </a>
+
+                
+            </div>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed 
+                    vitae luctus erat. Vestibulum porta, massa id tempor aliquet, 
+                    massa massa placerat dui, quis ultricies leo velit ut lorem. 
+                    Etiam iaculis eros efficitur ullamcorper cursus. Integer pellentesque, 
+                    dui ut tempus dapibus, arcu nulla blandit urna, a feugiat erat sem 
+                    eget nibh. Quisque vel aliquam lacus, nec pulvinar diam.                   
+                </p>
+                    Nunc et metus quis massa aliquam condimentum. Phasellus egestas diam magna,
+                    scelerisque vehicula odio consectetur ut. Vestibulum ullamcorper finibus 
+                    nunc quis pulvinar. Proin placerat magna eu libero venenatis, consectetur 
+                    egestas quam laoreet. Duis varius ultrices sapien nec egestas. Nulla ante 
+                    lectus, pretium nec velit eu, porta gravida mi. Morbi egestas euismod congue. 
+                <p>
+
+                </p>
+            </div>
+
+        </section>
+
+
+    </main>
+    
+
+
+    <!-- 
+        import the edugress Vue app, defined in main.js file.
+    -->
+    <script src="./main.js"></script>
+
+    <!-- 
+        Mount edugress Vue app into my DOM
+
+        edugress.mount refers to the app I imported above
+        edugress within the main.js file.
+
+        '#edugress' refers to a DOM id selector used to plug the 
+        edugress app into a piece of my DOM. This will allow this
+        html template to have access to the edugress data values, methods
+        and computed properties.
+    -->
+    <script>
+        const mountedApp = edugress.mount('#edugress');
+    </script>
+</body>
+</html>

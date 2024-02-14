@@ -1,0 +1,39 @@
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color: coral;
+}
+
+main{
+    width: 70%;
+    margin: 0 auto;
+}
+
+main > section:first-child{
+    text-align: center;
+}
+
+main > section:nth-child(2) > div
+{
+    padding: 10px;
+}
+
+.flex_container
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+main > section:nth-child(1) > img{
+    width: 100px;
+}
+
+main > section:nth-child(2) img{
+    width: 200px;
+}
+
+main > section:nth-child(2) img:hover{
+    transform: scale(3);
+}
