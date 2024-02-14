@@ -105,8 +105,16 @@
                                 v-for="athlete in top_athletes" 
                                 :key="athlete.id"
                                 @mouseover="updateFavAtleteImage(athlete.fav_athlete)"
+                                
                             >
-                                {{ athlete.name }}
+                                {{ athlete.name }} <br />
+                                
+                                <!-- Syle binding -->
+                                House: 
+                                <div 
+                                    v-bind:style="{'background-color': athlete.house_color}" 
+                                    class="color-circle">
+                                </div>
                             </li>
                         </ol>
 
