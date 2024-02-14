@@ -54,7 +54,7 @@
                 -->
 
                 <button 
-                    :class="[student_count > 20 && student_count < 50 ? 'purple-button': 'green-button']"
+                    :class="[(student_count > 20 && student_count < 50) ? 'purple-button': 'green-button']"
                     v-on:click="addStudent"
                 >Add Student</button>
                 <br /><br />
