@@ -34,10 +34,18 @@
                     boolean data value.
                 -->
                 <p v-if="is_registration">
-                    <button class="button">REGISTRATION OPEN</button>
+                    <button 
+                        class="button" 
+                        :disabled="!is_registration"
+                    >REGISTRATION OPEN</button>
                 </p>
+                <!-- Apply a class binding based on the is_registration property -->
                 <p v-else>
-                    <button class="button">REGISTRATION CLOSED</button>
+                    <button
+                        class="button" 
+                        :class="{disabledButton: !is_registration}"
+                        :disabled="!is_registration"
+                    >REGISTRATION CLOSED</button>
                 </p>
                 
                 <!-- increment student count -->
@@ -85,11 +93,16 @@
                         <img :src="books_img" v-bind:alt="books_img_alt" class="bookpile scale">
                         <h3 v-if="onSale">Books On Sale!</h3>
                         <h3 v-else="onSale">Books Out of Stock!</h3>
+
+                        <!-- apply style binding -->
+                        <h2 :style="h2_styles">Favorite Athlete</h2>
+                        <img :src="fav_athlete_image" alt="fav image">
                     </div>
 
                     <!-- List rendering using v-for Vue directive -->
                     <div>
-                        <h2>Our Honor Students</h2>
+                         <!-- apply style binding -->
+                        <h2 :style="h2_styles">Our Honor Students</h2>
                         <ul>
                             <li v-for="student in honor_students">
                                 {{ student }}
@@ -99,13 +112,12 @@
                         <!-- 
                             v-bind the id to the key attribute.
                         -->
-                        <h2>Our Top Athletes</h2>
+                        <h2 :style="h2_styles">Our Top Athletes</h2>
                         <ol>
                             <li 
                                 v-for="athlete in top_athletes" 
                                 :key="athlete.id"
-                                @mouseover="updateFavAtleteImage(athlete.fav_athlete)"
-                                
+                                @mouseover="updateFavAtleteImage(athlete.fav_athlete)"                                
                             >
                                 {{ athlete.name }} <br />
                                 
@@ -116,16 +128,10 @@
                                     class="color-circle">
                                 </div>
                             </li>
-                        </ol>
-
-                        <h2>Favorite Athlete</h2>
-                        <img :src="fav_athlete_image" alt="fav image">
+                        </ol>                  
                     </div>
-
-                </div>
-                                
+                </div>                                
             </div>
-
         </section>
 
 

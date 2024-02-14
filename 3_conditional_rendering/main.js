@@ -32,7 +32,11 @@ const  edugress = Vue.createApp({
                     house_color: 'blue',
                     fav_athlete: './assets/images/fav2.jpg',
                 }
-            ],            
+            ],
+            h2_styles: {
+                color: 'purple',
+                'font-size': '25px'
+            }         
         }
     },
     methods:
