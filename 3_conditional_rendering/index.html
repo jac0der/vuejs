@@ -68,6 +68,12 @@
                 <p v-else>
                     Open Registration
                 </p>
+
+                <!-- show whether books are available for purchase. -->
+                <img :src="books_img" v-bind:alt="books_img_alt" class="bookpile">
+                <h3 v-if="onSale">Books On Sale!</h3>
+                <h3 v-else="onSale">Books Out of Stock!</h3>
+                
             </div>
 
         </section>

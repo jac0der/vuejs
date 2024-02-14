@@ -14,6 +14,9 @@ const  edugress = Vue.createApp({
             aboutFHS: 'https://en.wikipedia.org/wiki/Ferncourt_High_School',
             is_registration: true,
             student_count: 30,
+            books_img: './assets/images/book_pile.jpg',
+            books_img_alt: 'image of books',
+            onSale: true,
         }
     }
 })
