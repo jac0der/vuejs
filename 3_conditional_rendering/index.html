@@ -27,7 +27,7 @@
             <div>
                 <!-- short format of v-bind - attribute binding (:)-->
                 <a :href="aboutFHS" target="_blank">
-                    <img :src="image" :alt="image_alt">
+                    <img :src="image" :alt="image_alt" class="scale">
                 </a>
 
                 <!-- Render registration link based on is_registration 
@@ -40,7 +40,12 @@
                     <button class="button">REGISTRATION CLOSED</button>
                 </p>
                 
+                <!-- increment student count -->
                 <button v-on:click="addStudent">Add Student</button>
+                <br /><br />
+
+                <!-- decrement student count -->
+                <button @click="removeStudent">Remove Student</button>
                 <h3>
                     {{ 'Student Count: ' + student_count }}
                 </h3>
@@ -77,7 +82,7 @@
                 <div class="flex_container">
                     <div>
                         <!-- show whether books are available for purchase. -->
-                        <img :src="books_img" v-bind:alt="books_img_alt" class="bookpile">
+                        <img :src="books_img" v-bind:alt="books_img_alt" class="bookpile scale">
                         <h3 v-if="onSale">Books On Sale!</h3>
                         <h3 v-else="onSale">Books Out of Stock!</h3>
                     </div>
@@ -91,13 +96,22 @@
                             </li>
                         </ul>
 
-                        <!-- v-bind the id to the key attribute -->
+                        <!-- 
+                            v-bind the id to the key attribute.
+                        -->
                         <h2>Our Top Athletes</h2>
                         <ol>
-                            <li v-for="athlete in top_athletes" :key="athlete.id">
-                                {{ athlete.name }} is in house {{ athlete.house_color }} house.
+                            <li 
+                                v-for="athlete in top_athletes" 
+                                :key="athlete.id"
+                                @mouseover="updateFavAtleteImage(athlete.fav_athlete)"
+                            >
+                                {{ athlete.name }}
                             </li>
                         </ol>
+
+                        <h2>Favorite Athlete</h2>
+                        <img :src="fav_athlete_image" alt="fav image">
                     </div>
 
                 </div>

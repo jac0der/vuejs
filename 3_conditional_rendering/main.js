@@ -18,19 +18,21 @@ const  edugress = Vue.createApp({
             books_img_alt: 'image of books',
             onSale: true,
             honor_students: ['Ruth', 'John', 'Peter'],
+            fav_athlete_image: '',
             top_athletes: [
                 {
                     id: 0,
                     name: 'Paul',
-                    house_color: 'red'
+                    house_color: 'red',
+                    fav_athlete: './assets/images/fav1.jpg',
                 },
                 {
                     id: 1,
                     name: 'Nahum',
-                    house_color: 'blue'
+                    house_color: 'blue',
+                    fav_athlete: './assets/images/fav2.jpg',
                 }
-            ],
-
+            ],            
         }
     },
     methods:
@@ -38,6 +40,14 @@ const  edugress = Vue.createApp({
         addStudent()
         {
             this.student_count += 1;
+        },
+        removeStudent()
+        {
+            this.student_count--;
+        },
+        updateFavAtleteImage(image)
+        {
+            this.fav_athlete_image = image;
         }
     }
 })

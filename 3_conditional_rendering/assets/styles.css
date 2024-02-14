@@ -34,7 +34,7 @@ main > section:nth-child(2) img{
     width: 200px;
 }
 
-main > section:nth-child(2) img:hover{
+main > section:nth-child(2) img.scale:hover{
     transform: scale(3);
 }
 
