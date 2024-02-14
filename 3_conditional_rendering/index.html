@@ -26,10 +26,19 @@
             
             <div>
                 <!-- short format of v-bind - attribute binding (:)-->
-             <a :href="aboutFHS" target="_blank">
-                <img :src="image" :alt="image_alt">
-            </a>
+                <a :href="aboutFHS" target="_blank">
+                    <img :src="image" :alt="image_alt">
+                </a>
 
+                <!-- Render registration link based on is_registration 
+                    boolean data value.
+                -->
+                <p v-if="is_registration">
+                    <button class="button">REGISTRATION OPEN</button>
+                </p>
+                <p v-else>
+                    <button class="button">REGISTRATION CLOSED</button>
+                </p>
                 
             </div>
             <div>
@@ -41,13 +50,23 @@
                     dui ut tempus dapibus, arcu nulla blandit urna, a feugiat erat sem 
                     eget nibh. Quisque vel aliquam lacus, nec pulvinar diam.                   
                 </p>
+                <p>
+
                     Nunc et metus quis massa aliquam condimentum. Phasellus egestas diam magna,
                     scelerisque vehicula odio consectetur ut. Vestibulum ullamcorper finibus 
                     nunc quis pulvinar. Proin placerat magna eu libero venenatis, consectetur 
                     egestas quam laoreet. Duis varius ultrices sapien nec egestas. Nulla ante 
                     lectus, pretium nec velit eu, porta gravida mi. Morbi egestas euismod congue. 
-                <p>
+                </p>
 
+                <p v-if="student_count > 50">
+                    Enrolment Target Exceeded!!
+                </p>
+                <p v-else-if="student_count <= 50 && student_count > 20">
+                    Enrolment Sufficient
+                </p>
+                <p v-else>
+                    Open Registration
                 </p>
             </div>
 

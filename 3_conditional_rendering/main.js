@@ -11,7 +11,9 @@ const  edugress = Vue.createApp({
             image_alt: 'image of FHS School',
             logo: './assets/images/logo.jpg',
             logo_alt: 'image of FHS logo',
-            aboutFHS: 'https://en.wikipedia.org/wiki/Ferncourt_High_School'
+            aboutFHS: 'https://en.wikipedia.org/wiki/Ferncourt_High_School',
+            is_registration: true,
+            student_count: 30,
         }
     }
 })
