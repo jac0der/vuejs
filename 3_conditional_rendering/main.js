@@ -30,6 +30,14 @@ const  edugress = Vue.createApp({
                     house_color: 'blue'
                 }
             ],
+
+        }
+    },
+    methods:
+    {
+        addStudent()
+        {
+            this.student_count += 1;
         }
     }
 })
