@@ -13,7 +13,7 @@
 
         <section>
             <!-- long format of v-bind - attribute binding -->
-            <img v-bind:src="logo" alt="image of ferncourt high">
+            <img v-bind:src="logo" v-bind:alt="logo_alt">
 
             <!-- accessing properties from data object on edugress Vue app --> 
             <h2><a v-bind:href="aboutFHS" target="_blank">{{ school }}</a></h2>
@@ -27,7 +27,7 @@
             <div>
                 <!-- short format of v-bind - attribute binding (:)-->
              <a :href="aboutFHS" target="_blank">
-                <img :src="image" alt="image of ferncourt high">
+                <img :src="image" :alt="image_alt">
             </a>
 
                 
