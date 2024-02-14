@@ -16,7 +16,7 @@ const  edugress = Vue.createApp({
             student_count: 21,
             books_img: './assets/images/book_pile.jpg',
             books_img_alt: 'image of books',
-            onSale: true,
+            onSale: false,
             honor_students: ['Ruth', 'John', 'Peter'],
             fav_athlete_image: '',
             top_athletes: [

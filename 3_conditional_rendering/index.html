@@ -97,9 +97,20 @@
                 <div class="flex_container">
                     <div>
                         <!-- show whether books are available for purchase. -->
-                        <img :src="books_img" v-bind:alt="books_img_alt" class="bookpile scale">
-                        <h3 v-if="onSale">Books On Sale!</h3>
-                        <h3 v-else="onSale">Books Out of Stock!</h3>
+                        <img 
+                            :src="books_img" 
+                            v-bind:alt="books_img_alt" 
+                            class="bookpile scale"
+                            :class="{'book-no-sale': !onSale}"
+                        >
+
+                        <h3 
+                            v-if="onSale"
+                        >Books On Sale!</h3>
+
+                        <h3 
+                            v-else="onSale"
+                        >Books Out of Stock!</h3>
 
                         <!-- apply style binding -->
                         <h2 :style="h2_styles">Favorite Athlete</h2>
@@ -121,7 +132,7 @@
                         -->
                         <h2 :style="h2_styles">Our Top Athletes</h2>
                         <ol>
-                            <li 
+                            <li
                                 v-for="athlete in top_athletes" 
                                 :key="athlete.id"
                                 @mouseover="updateFavAtleteImage(athlete.fav_athlete)"                                
