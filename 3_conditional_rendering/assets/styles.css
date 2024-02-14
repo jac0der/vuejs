@@ -64,8 +64,20 @@ main > section:nth-child(2) img.scale:hover{
     border: 2px solid #d8d8d8;
     border-radius: 50%;
   }
-  
+
   .disabledButton {
     background-color: #d8d8d8;
     cursor: not-allowed;
+  }
+
+  .purple-button{
+    padding: 5px;
+    background-color: purple;
+    color: white;
+  }
+
+  .green-button{
+    padding: 5px;
+    background-color: green;
+    color: white;
   }

@@ -34,7 +34,7 @@
                     boolean data value.
                 -->
                 <p v-if="is_registration">
-                    <button 
+                    <button
                         class="button" 
                         :disabled="!is_registration"
                     >REGISTRATION OPEN</button>
@@ -48,8 +48,15 @@
                     >REGISTRATION CLOSED</button>
                 </p>
                 
-                <!-- increment student count -->
-                <button v-on:click="addStudent">Add Student</button>
+                <!-- 
+                    increment student count.
+                    Apply a class binding using terenary operator
+                -->
+
+                <button 
+                    :class="[student_count > 20 && student_count < 50 ? 'purple-button': 'green-button']"
+                    v-on:click="addStudent"
+                >Add Student</button>
                 <br /><br />
 
                 <!-- decrement student count -->
