@@ -3,9 +3,11 @@ edugress.component('school-leaders', {
     /*html*/
     `
     <h2 class="comp_h2">Shcool Leaders</h2>
-    <div v-for="leader in leaders">
+    <div v-for="(leader, index) in leaders">
         <label for="name">Name: </label>
-        <strong><label>{{ leader.name }}</label></strong>
+        <strong><label
+            v-on:mouseover="dispatchId(index)"
+        >{{ leader.name }}</label></strong>
         <br />
         <label for="position">Position: </label>
         <strong><label>{{ leader.position }}</label></strong>
@@ -33,6 +35,10 @@ edugress.component('school-leaders', {
         incrementStudentCount()
         {
             this.$emit('increment-student-count');
+        },
+        dispatchId(index)
+        {
+            this.$emit('dispatch-id', index);
         }
     }
 })

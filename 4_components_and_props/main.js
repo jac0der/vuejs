@@ -44,6 +44,7 @@ const  edugress = Vue.createApp({
             town: 'Claremount',
             parish: 'St. Ann',
             selected_index: 0,      
+            selected_leaders: [],
         }
     },
     methods:
@@ -67,6 +68,10 @@ const  edugress = Vue.createApp({
         IncrementStudentCount()
         {
             this.student_count += 1;
+        },
+        addToList(index)
+        {
+            this.selected_leaders.push(index);
         }
     },
     computed:

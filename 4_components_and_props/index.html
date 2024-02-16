@@ -68,7 +68,9 @@
                 <!-- Calling the school-leaders component -->
                 <school-leaders
                     @increment-student-count="IncrementStudentCount"
+                    @dispatch-id="addToList"
                 ></school-leaders>
+                <p>{{ selected_leaders.length }}</p>
             </div>
             <div>
                 <p>
