@@ -64,6 +64,9 @@
                 <h3>
                     {{ 'Student Count: ' + student_count }}
                 </h3>         
+
+                <school-leaders
+                ></school-leaders>
             </div>
             <div>
                 <p>
@@ -196,7 +199,10 @@
         import the edugress Vue app, defined in main.js file.
     -->
     <script src="./main.js"></script>
+
+    <!-- Import components -->
     <script src="./components/AthleteDisplay.js"></script>
+    <script src="./components/SchoolLeaders.js"></script>
 
     <!-- 
         Mount edugress Vue app into my DOM

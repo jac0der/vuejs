@@ -85,3 +85,11 @@ main > section:nth-child(2) img.scale:hover{
   .book-no-sale{
     opacity: 0.5;
   }
+
+
+  .comp_h2
+  {
+    color:cadetblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+  }

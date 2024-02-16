@@ -27,8 +27,11 @@ edugress.component('athlete-display',
     </div>
     <p>{{ rounded_student }}</p>
     `,
-    data(){
-        
+    data()
+    {
+        return {
+
+        }   
     },
     methods:
     {
