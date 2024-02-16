@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./assets/styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <main id="edugress">
+
+        <section>
+            <!-- long format of v-bind - attribute binding -->
+            <img v-bind:src="logo" v-bind:alt="logo_alt">
+
+            <!-- accessing properties from data object on edugress Vue app --> 
+            <h2><a v-bind:href="aboutFHS" target="_blank">{{ school }}</a></h2>
+            <p>
+                {{ school_address }}
+            </p>
+        </section>
+
+        <section class="flex_container">
+            
+            <div>
+                <!-- short format of v-bind - attribute binding (:)-->
+                <a :href="aboutFHS" target="_blank">
+                    <img :src="image" :alt="image_alt" class="scale">
+                </a>
+
+                <!-- Render registration link based on is_registration 
+                    boolean data value.
+                -->
+                <p v-if="is_registration">
+                    <button
+                        class="button" 
+                        :disabled="!is_registration"
+                    >REGISTRATION OPEN</button>
+                </p>
+                <!-- Apply a class binding based on the is_registration property -->
+                <p v-else>
+                    <button
+                        class="button" 
+                        :class="{disabledButton: !is_registration}"
+                        :disabled="!is_registration"
+                    >REGISTRATION CLOSED</button>
+                </p>
+                
+                <!-- 
+                    increment student count.
+                    Apply a class binding using terenary operator
+                -->
+
+                <button 
+                    :class="[(student_count > 20 && student_count < 50) ? 'purple-button': 'green-button']"
+                    v-on:click="addStudent"
+                >Add Student</button>
+                <br /><br />
+
+                <!-- decrement student count -->
+                <button @click="removeStudent">Remove Student</button>
+                <h3>
+                    {{ 'Student Count: ' + student_count }}
+                </h3>         
+            </div>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed 
+                    vitae luctus erat. Vestibulum porta, massa id tempor aliquet, 
+                    massa massa placerat dui, quis ultricies leo velit ut lorem. 
+                    Etiam iaculis eros efficitur ullamcorper cursus. Integer pellentesque, 
+                    dui ut tempus dapibus, arcu nulla blandit urna, a feugiat erat sem 
+                    eget nibh. Quisque vel aliquam lacus, nec pulvinar diam.                   
+                </p>
+                <p>
+
+                    Nunc et metus quis massa aliquam condimentum. Phasellus egestas diam magna,
+                    scelerisque vehicula odio consectetur ut. Vestibulum ullamcorper finibus 
+                    nunc quis pulvinar. Proin placerat magna eu libero venenatis, consectetur 
+                    egestas quam laoreet. Duis varius ultrices sapien nec egestas. Nulla ante 
+                    lectus, pretium nec velit eu, porta gravida mi. Morbi egestas euismod congue. 
+                </p>
+
+                <p v-if="student_count > 50">
+                    Enrolment Target Exceeded!!
+                </p>
+                <p v-else-if="student_count <= 50 && student_count > 20">
+                    Enrolment Sufficient
+                </p>
+                <p v-else>
+                    Open Registration
+                </p>
+
+                <div class="flex_container">
+                    <div>
+                        <!-- show whether books are available for purchase. -->
+                        <img 
+                            :src="books_img" 
+                            v-bind:alt="books_img_alt" 
+                            class="bookpile scale"
+                            :class="{'book-no-sale': !onSale}"
+                        >
+
+                        <h3 
+                            v-if="onSale"
+                        >Books On Sale!</h3>
+
+                        <h3 
+                            v-else="onSale"
+                        >Books Out of Stock!</h3>
+
+                        <!-- apply style binding -->
+                        <h2 :style="h2_styles">Favorite Athlete</h2>
+                        <img :src="fav_athlete_image" alt="fav image">
+                    </div>
+
+                    <!-- List rendering using v-for Vue directive -->
+                    <div>
+                         <!-- apply style binding -->
+                        <h2 :style="h2_styles">Our Honor Students</h2>
+                        <ul>
+                            <li v-for="student in honor_students">
+                                {{ student }}
+                            </li>
+                        </ul>
+
+                        <!-- 
+                            v-bind the id to the key attribute.
+                        -->
+                        <h2 :style="h2_styles">Our Top Athletes</h2>
+                        <ol>
+                            <li
+                                v-for="athlete in top_athletes" 
+                                :key="athlete.id"
+                                @mouseover="updateFavAtleteImage(athlete.fav_athlete)"                                
+                            >
+                                {{ athlete.name }} <br />
+                                
+                                <!-- Syle binding -->
+                                House: 
+                                <div 
+                                    v-bind:style="{'background-color': athlete.house_color}" 
+                                    class="color-circle">
+                                </div>
+                            </li>
+                        </ol>
+                        
+                        <h2>Top Athletes Favorite Food</h2>
+                        <p>
+                            Curabitur imperdiet nisi non facilisis gravida. Aliquam id risus 
+                            in elit sollicitudin hendrerit ut ut leo. Suspendisse id ligula in 
+                            est condimentum lacinia id ac nulla.
+                        </p>
+
+                        <ul>
+                            <li
+                                v-for="(athlete, index) in top_athletes" 
+                                :key="athlete.id"
+                                @mouseover="setSelectedAthlete(index)"
+                            >
+                                {{ athlete.name }} <br />
+                                Highest Score: 
+                                <br />
+                            </li>
+                            
+                        </ul>
+
+                        <img :src="atlethe_food" alt="athlete food">
+                    </div>
+                </div>       
+                <br />
+                
+                <!-- 
+                    use athlete display component here.
+                    pass the top_athletes array as a prop to the child component.
+                -->
+              <athlete-display
+                :premium="true" :atheletes="top_athletes"
+              ></athlete-display>                         
+            
+            </div>
+
+              
+        </section>
+
+        <br><br>
+
+
+    </main>
+    
+
+
+    <!-- 
+        import the edugress Vue app, defined in main.js file.
+    -->
+    <script src="./main.js"></script>
+    <script src="./components/AthleteDisplay.js"></script>
+
+    <!-- 
+        Mount edugress Vue app into my DOM
+
+        edugress.mount refers to the app I imported above
+        edugress within the main.js file.
+
+        '#edugress' refers to a DOM id selector used to plug the 
+        edugress app into a piece of my DOM. This will allow this
+        html template to have access to the edugress data values, methods
+        and computed properties.
+    -->
+    <script>
+        const mountedApp = edugress.mount('#edugress');
+    </script>
+</body>
+</html>

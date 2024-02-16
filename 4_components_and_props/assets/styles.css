@@ -1,0 +1,87 @@
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color: coral;
+}
+
+main{
+    width: 70%;
+    margin: 0 auto;
+}
+
+main > section:first-child{
+    text-align: center;
+}
+
+main > section:nth-child(2) > div
+{
+    padding: 10px;
+}
+
+.flex_container
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+main > section:nth-child(1) > img{
+    width: 100px;
+}
+
+main > section:nth-child(2) img{
+    width: 200px;
+}
+
+main > section:nth-child(2) img.scale:hover{
+    transform: scale(3);
+}
+
+.button {
+    background-color: #39495c;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 160px;
+    height: 70px;
+    color: white;
+    padding: 20px;
+    box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
+      inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),
+      inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .bookpile{
+    max-width: 100px;
+  }
+
+  .color-circle {
+    width: 50px;
+    height: 50px;
+    margin-top: 8px;
+    border: 2px solid #d8d8d8;
+    border-radius: 50%;
+  }
+
+  .disabledButton {
+    background-color: #d8d8d8;
+    cursor: not-allowed;
+  }
+
+  .purple-button{
+    padding: 5px;
+    background-color: purple;
+    color: white;
+  }
+
+  .green-button{
+    padding: 5px;
+    background-color: green;
+    color: white;
+  }
+
+  .book-no-sale{
+    opacity: 0.5;
+  }
