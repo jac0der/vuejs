@@ -63,6 +63,10 @@ const  edugress = Vue.createApp({
         setSelectedAthlete(index)
         {
             this.selected_index = index;
+        },
+        IncrementStudentCount()
+        {
+            this.student_count += 1;
         }
     },
     computed:

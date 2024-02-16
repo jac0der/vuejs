@@ -10,7 +10,9 @@ edugress.component('school-leaders', {
         <label for="position">Position: </label>
         <strong><label>{{ leader.position }}</label></strong>
         <br /><br />
-    </div>`,
+        
+    </div>
+    <button v-on:click="incrementStudentCount">Add Student</button>`,
     data()
     {
         return{
@@ -24,6 +26,13 @@ edugress.component('school-leaders', {
                     position: 'Vice Principal'
                 }
             ]
+        }
+    },
+    methods:
+    {
+        incrementStudentCount()
+        {
+            this.$emit('increment-student-count');
         }
     }
 })
